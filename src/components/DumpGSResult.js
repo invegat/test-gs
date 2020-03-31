@@ -1,0 +1,34 @@
+import React from 'react';
+import { connect } from 'react-redux';
+import { getEvents } from '../actions/events'
+
+class GSForm extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  // }
+
+  handlePost = () => {
+    console.log('loading')
+    this.props.load()
+  }
+  render() {
+    return (
+      <form>
+        <div>
+          result:
+          <textarea value={this.props.value} />
+        </div>
+        <input type="button" value="Do Post" onClick={this.handlePost} />
+      </form>
+    );
+  }
+}
+
+export default connect(
+  state => ({
+    value: state.tests || "Waiting"
+  }),
+  dispatch => ({
+    load: () => dispatch(getEvents())
+  })
+)(GSForm)
