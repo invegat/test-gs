@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getEvents } from '../actions/events'
+import { postGS, getQuote } from '../actions/events'
 
 class GSForm extends React.Component {
   // constructor(props) {
@@ -29,6 +29,7 @@ export default connect(
     value: state.tests || "Waiting"
   }),
   dispatch => ({
-    load: () => dispatch(getEvents())
+    load: () => dispatch(postGS()),
+    loadQuote: () => dispatch(getQuote())
   })
 )(GSForm)
