@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <Router classname='AppRouter' >
         <div className='App'>
-          <Route path='/test' component={DumpGSResult} ></Route>
+          <Route path='/' component={DumpGSResult}   ></Route>
         </div>
       </Router>
     );
